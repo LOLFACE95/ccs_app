@@ -1,0 +1,9 @@
+:root{
+    --emerald: #23AE84;
+    --darkEmerald: #0B6F5D;
+    --ourGray: #646464;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
