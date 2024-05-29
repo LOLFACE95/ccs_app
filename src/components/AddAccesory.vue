@@ -14,10 +14,10 @@
 
         <div class="mt-6">
             <h4 class="mt-3 text-xl font-medium">
-              {{ accesoryElement.grossCost }} brutto
+              {{ accesoryElement.grossCost }} zł brutto
             </h4>
             <p class="mt-1 font-light text-ourGray">
-              {{ accesoryElement.netCost }} netto
+              {{ accesoryElement.netCost }} zł netto
             </p>
         </div>
         <div class="flex relative mt-5">

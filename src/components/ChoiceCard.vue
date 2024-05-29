@@ -10,8 +10,8 @@
                                 :package-element="packageElement.element"  />
             </div>
 
-            <p class="text-emerald text-[19px] mt-5">{{ cardData.grossCost.toFixed(2) }} brutto</p>
-            <p class="text-ourGray text-sm mt-2">{{ cardData.netCost.toFixed(2)}} netto</p>   
+            <p class="text-emerald text-[19px] mt-5">{{ cardData.grossCost.toFixed(2) }} zł brutto</p>
+            <p class="text-ourGray text-sm mt-2">{{ cardData.netCost.toFixed(2)}} zł netto</p>   
 
             <slot />
     </div>

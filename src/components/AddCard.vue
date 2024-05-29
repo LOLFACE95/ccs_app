@@ -11,8 +11,8 @@
                                 :package-element="packageElement.element"  />
             </div>
 
-            <p class="text-emerald text-[19px] mt-5">{{ cardElements.grossCost }} brutto</p>
-            <p class="text-ourGray text-sm mt-2">{{ cardElements.netCost }} netto</p>   
+            <p class="text-emerald text-[19px] mt-5">{{ cardElements.grossCost }} zł brutto</p>
+            <p class="text-ourGray text-sm mt-2">{{ cardElements.netCost }} zł netto</p>   
 
             <div class="flex relative mt-5">
                 <HorizontalButton class="ml-0 w-full duration-[.2s]" 
