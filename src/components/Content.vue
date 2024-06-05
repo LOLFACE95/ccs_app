@@ -28,22 +28,19 @@
                       class="mt-8"/>
 
         <StepFourthLeft v-if="stageNumber === 3" 
-                      class="mt-8"/>
+                      class="mt-8"
+                      :ownChoice="ownChoice"
+                      @add-property="addObjectOwnChoice"
+                      @delete-property="removeObjectOwnChoice"
+                      />
       </div>
 
       <div class="w-full lg:w-[40%] flex-shrink lg:mt-0 mt-10">
         <StepFirstRight v-if="stageNumber === 0" />
         <StepSecondRight v-if="stageNumber >= 1" :card-data="cardData" @next-stage="nextStage" />
-     
       </div>
-
-      
-
     </div>
   </div>
-  
-
-
 </template>
 
 <script>
@@ -53,9 +50,6 @@ import StepFirstRight from './StepFirstRight.vue'
 import RemainingTime from './RemainingTime.vue'
 import PricingStages from './PricingStages.vue'
 import OrderData from './OrderData.vue'
-// import RepairEstimate from './RepairEstimate.vue'
-// import ChoosingPanel from './ChoosingPanel.vue'
-// import OwnConfiguration from './OwnConfiguration.vue'
 import StepSecondLeft from './StepSecondLeft.vue'
 import StepSecondRight from './StepSecondRight.vue'
 import StepThirdLeft from './StepThirdLeft.vue'
@@ -76,11 +70,6 @@ export default {
     PricingStages,
     OrderData,
     StepFourthLeft,
-    // RepairEstimate,
-    // ChoosingPanel,
-    // OwnConfiguration,
-    // ChooseUs,
-    // NotRepairPanel,
 
   },
   data(){
@@ -96,6 +85,7 @@ export default {
       cardData: {
         packageElements: [],
       },
+      ownChoice: []
     }
   },
   methods: {
@@ -107,27 +97,32 @@ export default {
     replaceObject(newObject) {
       this.cardData = newObject;
     },
-    addObject(newValue, grossC, netC) {
-      const newKey = `key${this.nextKey}`;
-      this.cardData.packageElements.push({id: newKey, element: newValue});
-      this.nextKey += 1;
-      this.cardData.grossCost += grossC;
-      this.cardData.netCost += netC;
+    addObject(newValue) {
+      this.addObjectOwnChoice(newValue);
+      this.ownChoice.push(newValue);
     },
-    removeObject(newValue, grossC, netC) {
+    addObjectOwnChoice(newValue) {
+      const newKey = `key${this.nextKey}`;
+      this.cardData.packageElements.push({id: newKey, element: newValue.cardName});
+      this.nextKey += 1;
+      this.cardData.grossCost += newValue.grossCost;
+      this.cardData.netCost += newValue.netCost;
+    },
+    removeObjectOwnChoice(newValue, grossC, netC) {
       const index = this.cardData.packageElements.findIndex(object => object.element === newValue);
-      console.log(index, this.cardData.packageElements[1])
       if (index !== -1) {
         this.cardData.packageElements.splice(index, 1);
         this.cardData.grossCost -= grossC;
         this.cardData.netCost -= netC;
       }
     },
-  
-    cokolwiek(){
-      this.cardData.packageElements.push({id:4, element: "Jajco"});
+    removeObject(newValue, grossC, netC) {
+      this.removeObjectOwnChoice(newValue, grossC, netC);
+      const indexOwnChoice = this.ownChoice.findIndex(object => object.cardName === newValue);
+      if(indexOwnChoice !== -1){
+        this.ownChoice.splice(indexOwnChoice, 1);
+      }
     },
-    
 
   },
 }

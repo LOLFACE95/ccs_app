@@ -1,33 +1,35 @@
 <template>
-<div>
-    <Card class="w-full flex justify-between items-center">
-        <div>
-            <div class="w-[70px] h-[70px] bg-[url('images/ramka.svg')] bg-cover bg-no-repeat rounded-xl"></div>
-            <h3 class="mt-4 text-medium">Ramka tylnej kamerki</h3>
-            <p class="text-sm text-ourGray">rysy</p>
-        </div>
-        <div class="text-right w-1/3">
-            <p class="text-medium">
-                227,85 zł brutto 
-            </p>
-            <p class="text-sm text-ourGray mt-2">
-                185,24 zł netto 
-            </p>
-            <HorizontalButton class="mt-4">Dodane</HorizontalButton>
-        </div>
-    </Card>
-</div>
+    <div>
+
+        <SummaryCard v-for="item in ownChoice" 
+                        :key="item.id" 
+                        :ownChoice="item"
+                        class="mt-4"
+                        @add-property="emitAddProperty"
+                        @delete-property="emitDeleteProperty"
+                        >
+                        
+        </SummaryCard>
+    </div>
 </template>
 
 <script>
-import Card from './Card.vue'
-import HorizontalButton from './HorizontalButton.vue'
-
+import SummaryCard from './SummaryCard.vue';
 export default{
     name: "StepFourthLeft",
     components:{
-        Card,
-        HorizontalButton,
-    }
+        SummaryCard,
+    },
+    props:{
+        ownChoice: Array,
+    },
+    methods: {
+        emitAddProperty(newValue) {
+            this.$emit('add-property', newValue);
+        },
+        emitDeleteProperty(newValue, grossC, netC) {
+            this.$emit('delete-property', newValue, grossC, netC);
+        }
+    },
 }
 </script>

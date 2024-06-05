@@ -61,8 +61,8 @@ export default{
         AddAccesory,
     },
     methods: {
-        emitAddProperty(newValue, grossC, netC) {
-            this.$emit('add-property', newValue, grossC, netC);
+        emitAddProperty(newValue) {
+            this.$emit('add-property', newValue);
         },
         emitDeleteProperty(newValue, grossC, netC) {
             this.$emit('delete-property', newValue, grossC, netC);
@@ -73,7 +73,10 @@ export default{
             accesoryElements: [
                 {
                     id: 0,
-                    element: "Bateria", 
+                    cardName: "Bateria",
+                    packageElements: [
+                        {id: 3, element: "Bateria"},               
+                    ],
                     description: "natualne zużycie eksploatacyjne", 
                     grossCost: 227.85, 
                     netCost: 185.24,
@@ -81,7 +84,7 @@ export default{
                 },
                 {
                     id: 1, 
-                    element: "Ramka tylnej kamerki", 
+                    cardName: "Ramka tylnej kamerki", 
                     description: "rysy", 
                     grossCost: 227.85, 
                     netCost: 185.24,
