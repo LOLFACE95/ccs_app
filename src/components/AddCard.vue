@@ -1,7 +1,11 @@
 <template>
     <div class="overflow-hidden">
-        <h3 class="text-center text-xl font-medium my-5">
-            {{ cardElements.title }}
+        <div class="bg-white w-20 h-20  bg-contain bg-center rounded-lg bg-no-repeat"
+            :class="cardElements.imgUrl"
+            >
+        </div>
+        <h3 class="mt-4 text-xl font-medium my-5">
+            {{ cardElements.cardName }}
 
         </h3>
             <div class="leading-[25px] text-ourGray text-sm border-b pb-4">
@@ -64,10 +68,16 @@ export default {
     },
     methods: {
     add() {
-      this.isAdd = true;
+        if(!this.isAdd){
+        this.$emit('add-property', this.cardElements);
+        this.isAdd = true;
+      }
     },
     deleteAdd() {
-      this.isAdd = false;
+        if(this.isAdd){
+        this.$emit('delete-property', this.cardElements.cardName, this.cardElements.grossCost, this.cardElements.netCost);
+        this.isAdd = false;
+      }
     },
 
   }

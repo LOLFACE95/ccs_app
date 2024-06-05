@@ -21,17 +21,24 @@
             <div class="mt-20">
                 
                 <PremiumCard class="w-full">
-                    <AddCard :card-elements="recomSecurity[0]"/>
+                    <AddCard :card-elements="recomSecurity[0]"
+                            @add-property="emitAddProperty"
+                            @delete-property="emitDeleteProperty"
+                            />
                 </PremiumCard>
                 
                 <div class="flex justify-between mt-10 sm:flex-row flex-col">
                     <Card class="w-full sm:w-[48%]">
-                        <AddCard :card-elements="recomSecurity[0]"
-                        class=" "/>
+                        <AddCard :card-elements="recomSecurity[1]"
+                            @add-property="emitAddProperty"
+                            @delete-property="emitDeleteProperty"
+                            />
                     </Card>
                     <Card class="w-full sm:w-[48%] mt-8 sm:mt-0">
-                        <AddCard :card-elements="recomSecurity[0]"
-                        class=" "/>
+                        <AddCard :card-elements="recomSecurity[2]"
+                            @add-property="emitAddProperty"
+                            @delete-property="emitDeleteProperty"
+                            />
                     </Card>
                 </div>
             </div>
@@ -93,7 +100,8 @@ export default{
             ],
             recomSecurity: [
                 {
-                    title: "Folia ochronna MATT",
+                    cardName: "Folia ochronna MATT",
+                    description: "Wysokiej klasy folia ochronna",
                     packageElements: [
                         {
                             id: 0, element: "Wybierasz najwyższą jakość usług i 30 lat doświadczenia",
@@ -107,9 +115,12 @@ export default{
                     ],
                     grossCost: 227.85,
                     netCost: 185.24,
+                    imgUrl: "bg-[url('images/folia_premium.svg')]",
+
                 },
                 {
-                    title: "Folia ochronna Basic",
+                    cardName: "Folia ochronna Basic",
+                    description: "Wysokiej klasy folia ochronna",
                     packageElements: [
                         {
                             id: 0, element: "Wybierasz najwyższą jakość usług i 30 lat doświadczenia",
@@ -123,9 +134,11 @@ export default{
                     ],
                     grossCost: 227.85,
                     netCost: 185.24,
+                    imgUrl: "bg-[url('images/folia_premium.svg')]",
                 },
                 {
-                    title: "Folia ochronna Basic",
+                    cardName: "Folia ochronna Basic",
+                    description: "Wysokiej klasy folia ochronna",
                     packageElements: [
                         {
                             id: 0, element: "Wybierasz najwyższą jakość usług i 30 lat doświadczenia",
@@ -139,6 +152,7 @@ export default{
                     ],
                     grossCost: 227.85,
                     netCost: 185.24,
+                    imgUrl: "bg-[url('images/folia_premium.svg')]",
                 }
             ],
         };

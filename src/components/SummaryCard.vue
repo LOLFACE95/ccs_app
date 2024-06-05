@@ -9,7 +9,7 @@
                 <h3 class="mt-4 text-medium">{{ ownChoice.cardName }}</h3>
                 <p class="text-sm text-ourGray">{{ ownChoice.description }}</p>
             </div>
-            <div class="sm:text-right sm:w-1/3 sm:mt-0 mt-4">
+            <div class="sm:text-right sm:w-2/5 sm:mt-0 mt-4">
                     <p class="text-medium">
                         {{ownChoice.grossCost}} zł brutto 
                         
@@ -19,7 +19,7 @@
                     </p>
                 <div class="flex relative mt-5">
 
-                    <HorizontalButton class="ml-0 w-full duration-[.2s]" 
+                    <HorizontalButton class="ml-0 w-full duration-[.2s] " 
                                 :class="{'!w-[80%] bg-[#EBEBEB] rounded-[100px]':isAdd}"  
                                 @click="emitAddProperty"
                                 >
