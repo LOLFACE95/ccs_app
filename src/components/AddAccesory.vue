@@ -1,18 +1,26 @@
 <template>
     <Card :class="{'border-emerald !bg-[#f4f8f7]': isAdd}" 
-          class="duration-200 border w-[45%] overflow-hidden">
-        <div class="bg-white w-20 h-20  bg-contain bg-center rounded-lg bg-no-repeat"
+          class="duration-200 border w-[45%] overflow-hidden flex flex-col justify-between">
+          
+          <div>
+
+            <div class="bg-white w-20 h-20  bg-contain bg-center rounded-lg bg-no-repeat"
             :class="accesoryElement.imgUrl"
             >
+          </div>
+          <div>
+            
+            <h4 class="mt-3 text-xl font-medium">
+              {{ accesoryElement.cardName }}
+            </h4>
+            <p class="mt-1 font-light text-ourGray">
+              {{ accesoryElement.description }}
+            </p>
+            
+          </div>
         </div>
-        <div>
-          <h4 class="mt-3 text-xl font-medium">
-            {{ accesoryElement.cardName }}
-          </h4>
-          <p class="mt-1 font-light text-ourGray">
-            {{ accesoryElement.description }}
-          </p>
-        </div>
+          
+
         <div>
 
             <div>
@@ -27,8 +35,8 @@
               </div>
               
               <div class="flex relative mt-5">
-                <HorizontalButton class="ml-0 w-full duration-[.2s]" 
-                :class="{'!w-[80%] bg-[#EBEBEB] rounded-[100px]':isAdd}"  
+                <HorizontalButton class="ml-0 duration-[.2s] w-full" 
+                :class="{'bg-[#EBEBEB] rounded-[100px] added':isAdd}"  
                 @click="emitAddProperty"
                 >
                 <p v-if="!isAdd">Dodaj do naprawy +</p>
@@ -36,7 +44,7 @@
                 </HorizontalButton>
                 
                 <div class="w-[30px] h-[30px] flex justify-center items-center top-[50%] translate-y-[-50%] right-[-70px] absolute duration-200"
-                :class="{'right-[1%]':isAdd}"
+                :class="{'right-[0]':isAdd}"
                 >
                   <img class="w-[25px] cursor-pointer" 
                   src="images/trash.svg" 
@@ -50,7 +58,12 @@
     </div>
 
     </Card>
-</template> 
+</template>
+<style>
+  .added{
+    width: calc(100% - 48px) !important;
+  }
+</style>
  
 <script>
 import Card from './Card.vue'

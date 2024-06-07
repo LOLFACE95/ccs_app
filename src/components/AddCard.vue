@@ -19,29 +19,21 @@
             <p class="text-ourGray text-sm mt-2">{{ cardElements.netCost }} zł netto</p>   
 
             <div class="flex relative mt-5">
-                <HorizontalButton class="ml-0 w-full duration-[.2s]" 
-                            :class="{'!w-[80%] bg-[#EBEBEB] rounded-[100px]':isAdd}"  
-                            @click="add"
-                            >
-                    <p v-if="!isAdd">Dodaj do naprawy +</p>
-                    <p v-if="isAdd">Dodane</p>
-                </HorizontalButton>
-                <div class="w-[30px] h-[30px] flex justify-center items-center top-[50%] translate-y-[-50%] right-[-70px] absolute duration-200"
-                        :class="{'right-[5%]':isAdd}"
-                        >
-                <img class="w-[25px] cursor-pointer" 
-                    src="images/trash.svg" 
-                    @click="deleteAdd"
-                    >
-            </div>
+                <AddButton :isAdd="isAdd"
+                            @add-property="add"
+                            @delete-property="deleteAdd"
+                
+                />
+               
         </div>
     </div>
 </template>
 
 <script>
 
-import HorizontalButton from './HorizontalButton.vue';
+// import HorizontalButton from './HorizontalButton.vue';
 import PackageElement from './PackageElement.vue';
+import AddButton from './AddButton.vue';
 
 export default {
 
@@ -56,8 +48,9 @@ export default {
         cardTitle: String,
     },
     components: {
-        HorizontalButton,
-        PackageElement
+        // HorizontalButton,
+        PackageElement,
+        AddButton,
     },
     
     data() {
