@@ -44,7 +44,7 @@
             <p class="">Wycena zlecenia</p>
             <p class="hidden">Zalecane akcesoria i zabezpieczenia</p>
             <p class="hidden">Ubezpieczenie</p>
-            <p class="hidden">Podsumowanie {{ stages }}</p>
+            <p class="hidden">Podsumowanie</p>
           </div>
         </div>
         <div class="sm:flex w-100 mt-2 hidden">

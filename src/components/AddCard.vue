@@ -51,8 +51,7 @@ export default {
         netCost: Number,
         grossCost: Number,
         cardElements: { 
-            type: Array,
-            default: () => []
+            type: Object,
             },
         cardTitle: String,
     },

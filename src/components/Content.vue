@@ -4,7 +4,7 @@
     
     <MobileTopbar class="sm:hidden"/>
 
-    <RemainingTime class="mt-10"/>
+    <RemainingTime id="scroll-top"  class="mt-10"/>
     <PricingStages class="mt-14" :stage-number="stageNumber"/>
 
     
@@ -25,7 +25,10 @@
                         />
 
         <StepThirdLeft v-if="stageNumber === 2" 
-                      class="mt-8"/>
+                        class="mt-8"
+                        @add-property="addObject"
+                        @delete-property="removeObject"
+                        />
 
         <StepFourthLeft v-if="stageNumber === 3" 
                       class="mt-8"
@@ -92,6 +95,18 @@ export default {
     nextStage() {
       if(this.stageNumber <= 2){
         this.stageNumber++;
+        this.logElementTop();
+      }
+    },
+    logElementTop() {
+      const element = document.getElementById("scroll-top");
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        window.scrollTo({
+          top: rect.bottom + window.scrollY,
+          behavior: 'smooth',
+        });
+        console.log(element)
       }
     },
     replaceObject(newObject) {

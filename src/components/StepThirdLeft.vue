@@ -6,15 +6,17 @@
         </h3>
             <div class="flex justify-between mt-20 sm:flex-row flex-col">
                 <PremiumCard class="sm:w-[48%] w-full">
-                    <AddCard :card-elements="recomSecurity[0]">
-
-                    </AddCard>
+                    <AddCard :card-elements="recomSecurity[0]"
+                            @add-property="emitAddProperty"
+                            @delete-property="emitDeleteProperty"
+                            />
                 </PremiumCard>
 
                 <Card class="sm:w-[48%] sm:mt-0 mt-8 w-full">
-                    <AddCard :card-elements="recomSecurity[1]">
-
-                    </AddCard>
+                    <AddCard :card-elements="recomSecurity[1]"
+                            @add-property="emitAddProperty"
+                            @delete-property="emitDeleteProperty"
+                            />
                 </Card>
             </div>
     </div>
@@ -33,12 +35,20 @@ export default{
         AddCard,
         Card,
     },
+    methods: {
+        emitAddProperty(newValue) {
+            this.$emit('add-property', newValue);
+        },
+        emitDeleteProperty(newValue, grossC, netC) {
+            this.$emit('delete-property', newValue, grossC, netC);
+        }
+    },
     data(){
         return{
 
             recomSecurity: [
                 {
-                    title: "Kompleksowa ochrona",
+                    cardName: "Kompleksowa ochrona",
                     packageElements: [
                         {
                             id: 0, element: "ponowna awaria urządzenia",
@@ -52,9 +62,10 @@ export default{
                     ],
                     grossCost: 227.85,
                     netCost: 185.24,
+                    imgUrl: "bg-[url('images/shield_star.svg')]",
                 },
                 {
-                    title: "Folia ochronna Basic",
+                    cardName: "Folia ochronna Basic",
                     packageElements: [
                         {
                             id: 0, element: "ponowna awaria urządzenia",
@@ -68,6 +79,7 @@ export default{
                     ],
                     grossCost: 227.85,
                     netCost: 185.24,
+                    imgUrl: "bg-[url('images/shield_warning.svg')]",
                 },
             ],
         };
