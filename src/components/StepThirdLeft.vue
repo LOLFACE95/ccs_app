@@ -7,15 +7,19 @@
             <div class="flex justify-between mt-20 sm:flex-row flex-col">
                 <PremiumCard class="sm:w-[48%] w-full">
                     <AddCard :card-elements="recomSecurity[0]"
+                            :active="activeSecurity.cardName === recomSecurity[0].cardName"
                             @add-property="emitAddProperty"
                             @delete-property="emitDeleteProperty"
+                            @change-property="emitChangeProperty"
                             />
                 </PremiumCard>
 
                 <Card class="sm:w-[48%] sm:mt-0 mt-8 w-full">
                     <AddCard :card-elements="recomSecurity[1]"
+                            :active="activeSecurity.cardName === recomSecurity[1].cardName"
                             @add-property="emitAddProperty"
                             @delete-property="emitDeleteProperty"
+                            @change-property="emitChangeProperty"
                             />
                 </Card>
             </div>
@@ -38,14 +42,20 @@ export default{
     methods: {
         emitAddProperty(newValue) {
             this.$emit('add-property', newValue);
+            this.activeSecurity = newValue;
         },
         emitDeleteProperty(newValue, grossC, netC) {
             this.$emit('delete-property', newValue, grossC, netC);
-        }
+            this.activeSecurity = {};
+        },
+        emitChangeProperty(newValue, grossC, netC) {
+            this.$emit('delete-property', newValue, grossC, netC);
+
+        },
     },
     data(){
         return{
-
+            activeSecurity: {},
             recomSecurity: [
                 {
                     cardName: "Kompleksowa ochrona",
@@ -60,12 +70,12 @@ export default{
                             id: 2, element: "kradzież z włamaniem lub rabunek",
                         },
                     ],
-                    grossCost: 227.85,
+                    grossCost: 237.85,
                     netCost: 185.24,
                     imgUrl: "bg-[url('images/shield_star.svg')]",
                 },
                 {
-                    cardName: "Folia ochronna Basic",
+                    cardName: "Ochrona przed usterką",
                     packageElements: [
                         {
                             id: 0, element: "ponowna awaria urządzenia",

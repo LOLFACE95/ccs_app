@@ -24,8 +24,9 @@
                             @delete-property="deleteAdd"
                 
                 />
-               
+                
         </div>
+
     </div>
 </template>
 
@@ -46,6 +47,10 @@ export default {
             type: Object,
             },
         cardTitle: String,
+        active: {
+            type: String,
+            default: "",
+        }
     },
     components: {
         // HorizontalButton,
@@ -58,9 +63,16 @@ export default {
       isAdd: false,
     };
     },
+    watch:{
+        active(newVal, oldVal){
+            if(newVal === false, oldVal === true){
+                this.changeAdd();
+            }
+        }
+    },
     methods: {
     add() {
-        if(!this.isAdd){
+        if(!this.active){
         this.$emit('add-property', this.cardElements);
         this.isAdd = true;
       }
@@ -68,7 +80,13 @@ export default {
     deleteAdd() {
         if(this.isAdd){
         this.$emit('delete-property', this.cardElements.cardName, this.cardElements.grossCost, this.cardElements.netCost);
-        this.isAdd = false;
+        this.isAdd = !this.isAdd;
+      }
+    },
+    changeAdd() {
+        if(this.isAdd){
+        this.$emit('change-property', this.cardElements.cardName, this.cardElements.grossCost, this.cardElements.netCost);
+        this.isAdd = !this.isAdd;
       }
     },
 
