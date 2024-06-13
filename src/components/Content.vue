@@ -95,19 +95,15 @@ export default {
     nextStage() {
       if(this.stageNumber <= 2){
         this.stageNumber++;
-        this.logElementTop();
+        this.scrollTop();
       }
     },
-    logElementTop() {
-      const element = document.getElementById("scroll-top");
-      if (element) {
-        const rect = element.getBoundingClientRect();
+    scrollTop() {
         window.scrollTo({
-          top: rect.bottom + window.scrollY,
-          behavior: 'smooth',
+          top: 0,
+          // behavior: 'smooth',
         });
-        console.log(element)
-      }
+      
     },
     replaceObject(newObject) {
       this.cardData = newObject;
