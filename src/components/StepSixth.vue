@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="xl:w-[50%] xl:w-[70%] m-auto">
         <MobileTopbar class="sm:hidden"/>
         <h2 class="sm:hidden text-3xl mt-4">Podsumowanie</h2>
         
@@ -9,19 +9,16 @@
         </div>
         <Card class="w-full mt-10">
             <div class="flex items-center">
-                <div class="text-3xl">📄</div>
-                <h3 class="text-2xl ml-4">Żądanie natychmiatowego <br/> przystąpienia do wykonania Umowy przez serwis</h3>
+                <div class="text-3xl">💳</div>
+                <h3 class="text-2xl ml-4">Prosimy o wybranie formy płatności</h3>
             </div>
 
             <div class="border-t pt-4 mt-8">
                 <LabelElement option="option1">
-                    Z uwagi na wykonanie przez Serwis usług w zakresie Naprawy, wnoszę o natychmiastowe rozpoczęcie świadczenia usług w  zakresie wynikającym z zawartej Umowy, Oświadczam, że Serwis poinformował mnie o skutkach żądania natychmiastowego przystąpienia do wykonania Umowy.
-                    <span class="text-emerald underline cursor-pointer">
-                            Rowiń
-                    </span>
+                    Płatność online
                 </LabelElement>
                 <LabelElement option="option2">
-                    Nie wyrażam zgody na natychmiastowe rozpoczęcie świadczenia usług w zakresie wynikającym z zawartej Umowy. Przyjmę do wiadomości, że świadczenie rozpocznie sie po upływie terminu od odstąpienia od Umowy
+                    Płatność za pobraniem
                 </LabelElement>
             </div>
             <div class="flex mt-8 justify-between items-center">

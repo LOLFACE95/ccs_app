@@ -31,6 +31,7 @@
                 <HorizontalButton 
                     :premiumCard="true"
                     class="!w-[48%] !m-0"
+                    @click="emitUpdate"
                     >
                     Zatwierdź 
                 </HorizontalButton>
@@ -51,7 +52,12 @@ export default {
         MobileTopbar,
         HorizontalButton,
         LabelElement
-    }
+    },
+    methods: {
+        emitUpdate() {
+        this.$emit('next-stage');
+        },
+    },
 
 }
 </script>

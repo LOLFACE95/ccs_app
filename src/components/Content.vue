@@ -48,10 +48,14 @@
       <StepFifth 
         v-if="stageNumber === 4"
         class="mt-10"
+        @next-stage="nextStage"
       />
     
 
-      <StepSixth/>
+      <StepSixth
+        v-if="stageNumber === 5"
+        class="mt-10"
+        />
     </div>
 </template>
 <script>
@@ -104,7 +108,7 @@ export default {
   },
   methods: {
     nextStage() {
-      if(this.stageNumber <= 3){
+      if(this.stageNumber <= 4){
         this.stageNumber++;
         this.scrollTop();
       }
