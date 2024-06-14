@@ -1,7 +1,7 @@
 <template>
     <div class="w-full">
         <HorizontalButton class="ml-0 w-full duration-[.2s]" 
-                :class="{'bg-[#EBEBEB] rounded-[100px] added':isAdd}"  
+                :class="{'bg-emeraldLight rounded-[100px] added':isAdd}"  
                 @click="add"
                 >
             <p v-if="!isAdd">Dodaj do naprawy +</p>

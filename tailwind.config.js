@@ -14,7 +14,8 @@ module.exports = {
         emerald: 'var(--darkEmerald)',
         ourGray: 'var(--ourGray)',
         darkEmerald: 'var(--darkEmerald)',
-        emeraldDark: 'var(--emeraldDark)'
+        emeraldDark: 'var(--emeraldDark)',
+        emeraldLight: 'var(--lightEmerald)'
       }
     },
   },

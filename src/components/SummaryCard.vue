@@ -20,7 +20,7 @@
                 <div class="flex relative mt-5">
 
                     <HorizontalButton class="ml-0 w-full duration-[.2s] " 
-                                :class="{'!w-[80%] bg-[#EBEBEB] rounded-[100px]':isAdd}"  
+                                :class="{'!w-[80%] bg-emeraldLight rounded-[100px]':isAdd}"  
                                 @click="emitAddProperty"
                                 >
                         <p v-if="!isAdd">Dodaj do naprawy +</p>

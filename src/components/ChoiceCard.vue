@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3 class="text-left text-xl font-medium my-5">
+        <h3 class="text-left text-2xl font-medium my-5">
             {{ cardData.cardName }}
             
         </h3>

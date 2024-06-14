@@ -1,51 +1,57 @@
 <template>
   
-  <div class="xl:w-4/5 lg:w-[90%] w-[95%] m-auto pb-[150px]">
-    
-    <MobileTopbar class="sm:hidden"/>
-
-    <RemainingTime id="scroll-top"  class="mt-10"/>
-    <PricingStages class="mt-14" :stage-number="stageNumber"/>
-
-    
-    <div class="flex justify-between mt-10 flex-col lg:flex-row">
-
-      <div class="lg:w-[55%] w-full">
-        <OrderData class="" :order-data="orderData"/>
-
-        <StepFirstLeft v-if="stageNumber === 0" 
-                      @next-stage="nextStage" 
-                      @replace-object="replaceObject" 
-                      class="" />
-
-        <StepSecondLeft  v-if="stageNumber === 1" 
-                        class=""
-                        @add-property="addObject"
-                        @delete-property="removeObject"
-                        />
-
-        <StepThirdLeft v-if="stageNumber === 2" 
-                        class="mt-8"
-                        @add-property="addObject"
-                        @delete-property="removeObject"
-                        />
-
-        <StepFourthLeft v-if="stageNumber === 3" 
-                      class="mt-8"
-                      :ownChoice="ownChoice"
-                      @add-property="addObjectOwnChoice"
-                      @delete-property="removeObjectOwnChoice"
-                      />
+  <div class="xl:w-4/5 lg:w-[90%] w-[95%] m-auto pb-[150px]">  
+    <div v-if="stageNumber<=3">
+      
+      <MobileTopbar class="sm:hidden"/>
+      <RemainingTime id="scroll-top"  class="mt-10"/>
+      <PricingStages class="mt-14" :stage-number="stageNumber"/>
+      
+      
+      <div class="flex justify-between mt-10 flex-col lg:flex-row">
+        
+        <div  class="lg:w-[55%] w-full">
+          <OrderData class="" :order-data="orderData"/>
+          
+          <StepFirstLeft v-if="stageNumber === 0" 
+          @next-stage="nextStage" 
+          @replace-object="replaceObject" 
+          class="" />
+          
+          <StepSecondLeft  v-if="stageNumber === 1" 
+          class=""
+          @add-property="addObject"
+          @delete-property="removeObject"
+          />
+          
+          <StepThirdLeft v-if="stageNumber === 2" 
+          class="mt-8"
+          @add-property="addObject"
+          @delete-property="removeObject"
+          />
+          
+          <StepFourthLeft v-if="stageNumber === 3" 
+          class="mt-8"
+          :ownChoice="ownChoice"
+          @add-property="addObjectOwnChoice"
+          @delete-property="removeObjectOwnChoice"
+          />
+        </div>
+        
+        <div class="w-full lg:w-[40%] flex-shrink lg:mt-0 mt-10">
+          <StepFirstRight v-if="stageNumber === 0" />
+          <StepSecondRight v-if="stageNumber >= 1" :card-data="cardData" @next-stage="nextStage" />
+          </div>
+        </div>
       </div>
 
-      <div class="w-full lg:w-[40%] flex-shrink lg:mt-0 mt-10">
-        <StepFirstRight v-if="stageNumber === 0" />
-        <StepSecondRight v-if="stageNumber >= 1" :card-data="cardData" @next-stage="nextStage" />
-      </div>
+      <StepFifth 
+        v-if="stageNumber === 4"
+        class="mt-10">
+        sd
+      </StepFifth>
     </div>
-  </div>
 </template>
-
 <script>
 
 import StepFirstLeft from './StepFirstLeft.vue'
@@ -57,7 +63,7 @@ import StepSecondLeft from './StepSecondLeft.vue'
 import StepSecondRight from './StepSecondRight.vue'
 import StepThirdLeft from './StepThirdLeft.vue'
 import StepFourthLeft from './StepFourthLeft'
-
+import StepFifth from './StepFifth.vue'
 import MobileTopbar from './MobileTopbar'
 
 export default {
@@ -73,7 +79,7 @@ export default {
     PricingStages,
     OrderData,
     StepFourthLeft,
-
+    StepFifth,
   },
   data(){
     return{
@@ -93,7 +99,7 @@ export default {
   },
   methods: {
     nextStage() {
-      if(this.stageNumber <= 2){
+      if(this.stageNumber <= 3){
         this.stageNumber++;
         this.scrollTop();
       }
