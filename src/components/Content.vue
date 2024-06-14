@@ -60,13 +60,27 @@
         v-if="stageNumber === 4"
         class="mt-10"
         @next-stage="nextStage"
+        @prev-stage="prevStage"
       />
     
 
       <StepSixth
         v-if="stageNumber === 5"
         class="mt-10"
+        @next-stage="nextStage"
+        @prev-stage="prevStage"
         />
+      <StepSeventh
+        v-if="stageNumber === 6"
+        class="mt-10"
+        @next-stage="nextStage"
+        @prev-stage="prevStage"
+      />
+      <StepEighth
+        v-if="stageNumber === 7"
+        class="mt-10"
+        @prev-stage="prevStage"
+      />
     </div>
 </template>
 <script>
@@ -83,6 +97,8 @@ import StepFourthLeft from './StepFourthLeft'
 import StepFifth from './StepFifth.vue'
 import MobileTopbar from './MobileTopbar'
 import StepSixth from './StepSixth.vue'
+import StepSeventh from './StepSeventh.vue'
+import StepEighth from './StepEighth.vue'
 
 
 export default {
@@ -100,6 +116,8 @@ export default {
     StepFourthLeft,
     StepFifth,
     StepSixth,
+    StepSeventh,
+    StepEighth,
   },
   data(){
     return{
@@ -119,10 +137,13 @@ export default {
   },
   methods: {
     nextStage() {
-      if(this.stageNumber <= 4){
+      if(this.stageNumber <= 6){
         this.stageNumber++;
         this.scrollTop();
       }
+    },
+    prevStage(){
+      this.stageNumber--;
     },
     scrollTop() {
         window.scrollTo({

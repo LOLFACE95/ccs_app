@@ -25,7 +25,10 @@
                 </LabelElement>
             </div>
             <div class="flex mt-8 justify-between items-center">
-                <HorizontalButton class="!w-[48%] !m-0">
+                <HorizontalButton 
+                    class="!w-[48%] !m-0"
+                    @click="prevStage"
+                >
                     Cofnij
                 </HorizontalButton>
                 <HorizontalButton 
@@ -57,6 +60,10 @@ export default {
         emitUpdate() {
         this.$emit('next-stage');
         },
+        prevStage() {
+        this.$emit('prev-stage');
+        },
+        
     },
 
 }

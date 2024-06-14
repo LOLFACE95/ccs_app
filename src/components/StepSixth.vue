@@ -22,12 +22,16 @@
                 </LabelElement>
             </div>
             <div class="flex mt-8 justify-between items-center">
-                <HorizontalButton class="!w-[48%] !m-0">
+                <HorizontalButton 
+                    class="!w-[48%]"
+                    @click="prevStage"
+                >
                     Cofnij
                 </HorizontalButton>
                 <HorizontalButton 
                     :premiumCard="true"
-                    class="!w-[48%] !m-0"
+                    class="!w-[48%]"
+                    @click="emitUpdate"
                     >
                     Zatwierdź 
                 </HorizontalButton>
@@ -48,7 +52,15 @@ export default {
         MobileTopbar,
         HorizontalButton,
         LabelElement
-    }
+    },
+    methods: {
+        emitUpdate() {
+        this.$emit('next-stage');
+        },
+        prevStage() {
+        this.$emit('prev-stage');
+        },
+    },
 
 }
 </script>
