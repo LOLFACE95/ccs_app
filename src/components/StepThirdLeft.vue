@@ -78,13 +78,17 @@ export default{
                     cardName: "Ochrona przed usterką",
                     packageElements: [
                         {
-                            id: 0, element: "ponowna awaria urządzenia",
+                            id: 0, 
+                            element: "ponowna awaria urządzenia",
                         },
                         {
-                            id: 1, element: "Wybierasz najwyższą jakość usług i 30 lat doświadczenia",
+                            id: 1, 
+                            element: "Wybierasz najwyższą jakość usług i 30 lat doświadczenia",
                         },
                         {
-                            id: 2, element: "kradzież z włamaniem lub rabunek",
+                            id: 2, 
+                            element: "kradzież z włamaniem lub rabunek", 
+                            availibity: false,
                         },
                     ],
                     grossCost: 227.85,

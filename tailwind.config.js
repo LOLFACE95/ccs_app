@@ -13,7 +13,8 @@ module.exports = {
       colors: {
         emerald: 'var(--darkEmerald)',
         ourGray: 'var(--ourGray)',
-        darkEmerald: 'var(--darkEmerald)'
+        darkEmerald: 'var(--darkEmerald)',
+        emeraldDark: 'var(--emeraldDark)'
       }
     },
   },

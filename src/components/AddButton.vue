@@ -7,7 +7,7 @@
             <p v-if="!isAdd">Dodaj do naprawy +</p>
             <p v-if="isAdd">Dodane</p>
         </HorizontalButton>
-        <div class="w-[30px] h-[30px] flex justify-center items-center top-[50%] translate-y-[-50%] right-[-70px] absolute duration-200"
+        <div class="w-[30px] h-[30px] flex justify-center items-center top-[50%] translate-y-[-50%] right-[-70px] absolute duration-200 hover:translate-y-[-70%]"
                 :class="{'right-[0]':isAdd}"
                 >
             <img class="w-[25px] cursor-pointer" 

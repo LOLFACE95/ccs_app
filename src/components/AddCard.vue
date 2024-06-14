@@ -12,7 +12,8 @@
                 <PackageElement class="mt-4" 
                                 v-for="packageElement in cardElements.packageElements" 
                                 :key="packageElement.id" 
-                                :package-element="packageElement.element"  />
+                                :package-element="packageElement.element"
+                                :availibity="packageElement.availibity"  />
             </div>
 
             <p class="text-emerald text-[19px] mt-5">{{ cardElements.grossCost }} zł brutto</p>

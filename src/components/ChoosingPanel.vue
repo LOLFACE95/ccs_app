@@ -2,10 +2,8 @@
     <div>
         <div class="mt-20 flex justify-between sm:flex-row flex-col">
         <PremiumCard class="sm:w-[48%] w-full">
-            <ChoiceCard :card-data="cards[0]"
-                        >
-                <HorizontalButton @click="emitUpdate; emitReplaceObject(cards[0])"
-                                    
+            <ChoiceCard :card-data="cards[0]">
+                <HorizontalButton @click="emitUpdate; emitReplaceObject(cards[0])"              
                                     :premium-card="cards[0].premiumCard" class="mt-4">
                  {{ cards[0].buttonName }}
                 </HorizontalButton>
@@ -23,6 +21,9 @@
 
         </Card>
         </div>
+        <h3 class="text-2xl font-medium tracking-wide mt-10">
+            Lub skonfiguruj samodzielnie
+        </h3>
         <Card class="w-full mt-8">
             <ChoiceCard :card-data="cards[2]">
                 <HorizontalButton class="mt-4"
@@ -91,7 +92,7 @@ export default{
                     premiumCard: false,
                     grossCost: 708.52,
                     netCost: 538.64,
-                    buttonName: "Wybierz Standard"
+                    buttonName: "Konfiguruj samodzielnie"
                 },
 
             ],
