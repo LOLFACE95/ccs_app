@@ -1,5 +1,5 @@
 <template>
-    <div class="xl:w-[50%] xl:w-[70%] m-auto">
+    <div class="xl:w-[70%] m-auto">
         <MobileTopbar class="sm:hidden"/>
         <h2 class="sm:hidden text-3xl mt-4">Podsumowanie</h2>
         
