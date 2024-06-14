@@ -18,13 +18,13 @@
                     <label class="text-sm text-ourGray" for="option2">Z uwagi na wykonanie przez Serwis usług w zakresie Naprawy, wnoszę o natychmiastowe rozpoczęcie świadczenia usług w  zakresie wynikającym z zawartej Umowy, Oświadczam, że Serwis poinformował mnie o skutkach żądania natychmiastowego przystąpienia do wykonania Umowy. Rowiń</label>
                 </div>
             </div>
-            <div class="flex mt-8">
-                <HorizontalButton class="!w-[48%]">
+            <div class="flex mt-8 justify-between items-center">
+                <HorizontalButton class="!w-[48%] !m-0">
                     Cofnij
                 </HorizontalButton>
                 <HorizontalButton 
                     :premiumCard="true"
-                    class="!w-[48%]"
+                    class="!w-[48%] !m-0"
                     >
                     Zatwierdź
                 </HorizontalButton>
