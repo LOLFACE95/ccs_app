@@ -49,8 +49,8 @@ export default {
             },
         cardTitle: String,
         active: {
-            type: String,
-            default: "",
+            type: Boolean,
+            default: false,
         }
     },
     components: {

@@ -47,9 +47,11 @@
 
       <StepFifth 
         v-if="stageNumber === 4"
-        class="mt-10">
-        sd
-      </StepFifth>
+        class="mt-10"
+      />
+    
+
+      <StepSixth/>
     </div>
 </template>
 <script>
@@ -65,6 +67,8 @@ import StepThirdLeft from './StepThirdLeft.vue'
 import StepFourthLeft from './StepFourthLeft'
 import StepFifth from './StepFifth.vue'
 import MobileTopbar from './MobileTopbar'
+import StepSixth from './StepSixth.vue'
+
 
 export default {
   name: 'MainContent',
@@ -80,10 +84,11 @@ export default {
     OrderData,
     StepFourthLeft,
     StepFifth,
+    StepSixth,
   },
   data(){
     return{
-      stageNumber: 0,
+      stageNumber: 5,
 
       orderData:{
         orderNumber: "1007274392",

@@ -45,7 +45,7 @@ import MobileTopbar from './MobileTopbar.vue';
 import LabelElement from './LabelElement.vue';
 
 export default {
-    name: "StepFifth",
+    name: "StepSixth",
     components:{
         Card,
         MobileTopbar,
@@ -98,4 +98,7 @@ input[type="radio"]:checked + label{
   background-color: var(--darkEmerald);
 }
 
+</style>
+<style lang="">
+    
 </style>

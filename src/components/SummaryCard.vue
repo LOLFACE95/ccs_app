@@ -51,7 +51,7 @@ export default {
         Card,
     },
     props:{
-        ownChoice: Array,
+        ownChoice: Object,
     },
     data() {
         return{
