@@ -13,34 +13,45 @@
         <div  class="lg:w-[55%] w-full">
           <OrderData class="" :order-data="orderData"/>
           
-          <StepFirstLeft v-if="stageNumber === 0" 
-          @next-stage="nextStage" 
-          @replace-object="replaceObject" 
-          class="" />
-          
-          <StepSecondLeft  v-if="stageNumber === 1" 
-          class=""
-          @add-property="addObject"
-          @delete-property="removeObject"
+          <StepFirstLeft 
+            v-if="stageNumber === 0" 
+            @next-stage="nextStage" 
+            @replace-object="replaceObject" 
+            class="" 
           />
           
-          <StepThirdLeft v-if="stageNumber === 2" 
-          class="mt-8"
-          @add-property="addObject"
-          @delete-property="removeObject"
+          <StepSecondLeft  
+            v-if="stageNumber === 1" 
+            class=""
+            @add-property="addObject"
+            @delete-property="removeObject"
           />
           
-          <StepFourthLeft v-if="stageNumber === 3" 
-          class="mt-8"
-          :ownChoice="ownChoice"
-          @add-property="addObjectOwnChoice"
-          @delete-property="removeObjectOwnChoice"
+          <StepThirdLeft 
+            v-if="stageNumber === 2" 
+            class="mt-8"
+            @add-property="addObject"
+            @delete-property="removeObject"
+          />
+          
+          <StepFourthLeft 
+            v-if="stageNumber === 3" 
+            class="mt-8"
+            :ownChoice="ownChoice"
+            @add-property="addObjectOwnChoice"
+            @delete-property="removeObjectOwnChoice"
           />
         </div>
         
         <div class="w-full lg:w-[40%] flex-shrink lg:mt-0 mt-10">
-          <StepFirstRight v-if="stageNumber === 0" />
-          <StepSecondRight v-if="stageNumber >= 1" :card-data="cardData" @next-stage="nextStage" />
+          <StepFirstRight 
+            v-if="stageNumber === 0" 
+          />
+          <StepSecondRight 
+            v-if="stageNumber >= 1" 
+            :card-data="cardData" 
+            @next-stage="nextStage" 
+          />
           </div>
         </div>
       </div>
