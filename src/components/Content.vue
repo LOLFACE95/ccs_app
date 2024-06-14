@@ -88,7 +88,7 @@ export default {
   },
   data(){
     return{
-      stageNumber: 5,
+      stageNumber: 0,
 
       orderData:{
         orderNumber: "1007274392",
